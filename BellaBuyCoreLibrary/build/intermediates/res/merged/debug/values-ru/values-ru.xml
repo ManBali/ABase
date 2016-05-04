@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values-ru/values-ru.xml -->
+    <eat-comment/>
+    <string name="LOADING">Loading...</string>
+    <string name="app_name">SweetAlertDialog</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values-ru/strings.xml -->
+    <eat-comment/>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_submit">Отправить</string>
+    <string name="btn_sure_text">Готово</string>
+    <string name="complete">Готово.</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values-ru/values-ru.xml -->
+    <eat-comment/>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">Отмена</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values-ru/strings.xml -->
+    <eat-comment/>
+    <string name="do_option">Работа</string>
+    <string name="error">Произошла ошибка. Пожалуйста, попробуйте еще раз.</string>
+    <string name="exit_app">Нажмите еще раз для выхода из программы!</string>
+    <string name="failure">Произошла ошибка. Пожалуйста, попробуйте еще раз.</string>
+    <string name="http_response">Сервер не доступен.</string>
+    <string name="load">Загрузка... Подождите, пожалуйста!</string>
+    <string name="logoff">Выйти.</string>
+    <string name="no">Нет</string>
+    <string name="no_connections">Нет соединения с интернетом. Пожалуйста, попробуйте снова!</string>
+    <string name="not_network">Нет соединения с интернетом,Проверьте, пожалуйста!</string>
+    <string name="please_wait">Загрузка... Подождите, пожалуйста!</string>
+    <string name="prompt">Внимание</string>
+    <string name="pull_to_loading">Загрузка... Подождите, пожалуйста!</string>
+    <string name="pull_to_next">Нажми, чтобы получить больше!</string>
+    <string name="setnetwork">Нет соединения с интернетом. Зайдите в Настройки?</string>
+    <string name="setting_no">Отмена</string>
+    <string name="setting_yes_mobile">Настройки сети</string>
+    <string name="sfimageview_hint_loading">Loading...</string>
+    <string name="time_out">Нет соединения с интернетом. Пожалуйста, попробуйте снова!</string>
+    <string name="yes">Да</string>
+</resources>

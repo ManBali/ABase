@@ -9,7 +9,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BellaBuyCoreLibrary" />
             <option value="$PROJECT_DIR$/Demo" />
+            <option value="$PROJECT_DIR$/SweetAlertLibrary" />
+            <option value="$PROJECT_DIR$/main" />
           </set>
         </option>
       </GradleProjectSettings>

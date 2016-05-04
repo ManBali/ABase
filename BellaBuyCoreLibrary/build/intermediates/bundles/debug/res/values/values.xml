@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="customactivityoncrash_accent">#FF4081</color>
+    <color name="customactivityoncrash_primary">#3F51B5</color>
+    <color name="customactivityoncrash_primary_dark">#283593</color>
+    <color name="half_transparent">#7f888888</color>
+    <color name="text_black">#000000</color>
+    <color name="text_half_transparent">#70000000</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <declare-styleable name="CircularImageView"><attr format="boolean" name="border"/><attr format="color" name="border_color"/><attr format="dimension" name="border_width"/><attr format="boolean" name="selector"/><attr format="color" name="selector_color"/><attr format="color" name="selector_stroke_color"/><attr format="dimension" name="selector_stroke_width"/><attr format="boolean" name="shadow"/><attr format="boolean" name="border_overlay"/></declare-styleable>
+    <declare-styleable name="CropImageView"><attr format="reference" name="imgSrc"/><attr name="cropMode"><enum name="ratio_fit_image" value="0"/><enum name="ratio_4_3" value="1"/><enum name="ratio_3_4" value="2"/><enum name="ratio_1_1" value="3"/><enum name="ratio_16_9" value="4"/><enum name="ratio_9_16" value="5"/><enum name="ratio_free" value="6"/><enum name="ratio_custom" value="7"/><enum name="circle" value="8"/></attr><attr format="color" name="backgroundColor"/><attr format="color" name="overlayColor"/><attr format="color" name="frameColor"/><attr format="color" name="handleColor"/><attr format="color" name="guideColor"/><attr name="guideShowMode"><enum name="show_always" value="1"/><enum name="show_on_touch" value="2"/><enum name="not_show" value="3"/></attr><attr name="handleShowMode"><enum name="show_always" value="1"/><enum name="show_on_touch" value="2"/><enum name="not_show" value="3"/></attr><attr format="dimension" name="handleSize"/><attr format="dimension" name="touchPadding"/><attr format="dimension" name="minFrameSize"/><attr format="dimension" name="frameStrokeWeight"/><attr format="dimension" name="guideStrokeWeight"/><attr format="boolean" name="cropEnabled"/><attr format="float" name="initialFrameScale"/></declare-styleable>
+    <declare-styleable name="CustomCircularImageViewTheme"><attr format="reference" name="circularImageViewStyle"/></declare-styleable>
+    <declare-styleable name="SwipeListView"><attr format="boolean" name="swipeOpenOnLongPress"/><attr format="integer" name="swipeAnimationTime"/><attr format="dimension" name="swipeOffsetLeft"/><attr format="dimension" name="swipeOffsetRight"/><attr format="boolean" name="swipeCloseAllItemsWhenMoveList"/><attr format="reference" name="swipeFrontView"/><attr format="reference" name="swipeBackView"/><attr format="enum" name="swipeMode"><enum name="none" value="0"/><enum name="both" value="1"/><enum name="right" value="2"/><enum name="left" value="3"/></attr><attr format="enum" name="swipeActionLeft"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/></attr><attr format="enum" name="swipeActionRight"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/></attr></declare-styleable>
+    <declare-styleable name="myview_sf_imageview"><attr format="boolean" name="NeedCornerStyle"/></declare-styleable>
+    <declare-styleable name="xgridview"><attr format="boolean" name="isDetailPage"/></declare-styleable>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="center_button" type="id">false</item>
+    <item name="glide_tag" type="id"/>
+    <item name="left_button" type="id">false</item>
+    <item name="pb_id" type="id">false</item>
+    <item name="right_button" type="id">false</item>
+    <item name="tv_id" type="id">false</item>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="btn_cancel">cancel</string>
+    <string name="btn_submit">submit</string>
+    <string name="btn_sure_text">confirm</string>
+    <string name="complete">complete.</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/string_to_alipay.xml -->
+    <eat-comment/>
+    <string name="confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="confirm_install_hint">Tips</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="do_option">operation</string>
+    <string name="error">network instability. try again later</string>
+    <string name="exit_app">press again to exit the program.</string>
+    <string name="failure">Error. Please try again later</string>
+    <string name="http_response">server is not available.</string>
+    <string name="load">loading, Please wait</string>
+    <string name="logoff">log off.</string>
+    <string name="no">No</string>
+    <string name="no_connections">try again later.</string>
+    <string name="not_network">Mobuy can\'t connect to the net.</string>
+    <string name="please_wait">Loading. Please wait</string>
+    <string name="prompt">Tips</string>
+    <string name="pull_to_loading">Loading. Please wait</string>
+    <string name="pull_to_next">More</string>
+    <string name="setnetwork">No network. check your settings</string>
+    <string name="setting_no">Cancel to exit the application</string>
+    <string name="setting_yes_mobile">set your network</string>
+    <string name="sfimageview_hint_loading">Loading...</string>
+    <string name="time_out">server is not available</string>
+    <string name="yes">Yes</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="base_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <style name="layout_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="layout_fill_wrap">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="layout_wrap_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="layout_wrap_fill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exit_app">press again to exit the program.</string><!-- 再按一次退出程序 -->
+    <string name="not_network">Mobuy can\'t connect to the net.</string><!-- 当前网络不可用，network is not available. check your network settings.请检查网络设置 -->
+    <string name="no_connections">try again later.</string><!--网络好像不给力哦，请稍候再试 -->
+    <string name="http_response">server is not available.</string><!--服务器暂时连接不上  -->
+    <string name="time_out">server is not available</string><!-- 网络不稳定，请稍候再试... -->
+    <string name="error">network instability. try again later</string><!-- 加载数据出现错误，请稍候再试... -->
+    <string name="load">loading, Please wait</string><!-- 正在加载数据，请稍候... -->
+    <string name="please_wait">Loading. Please wait</string><!--正在加载数据，请稍候 ...  -->
+    <string name="pull_to_next">More</string><!-- 点击获取更多... -->
+    <string name="pull_to_loading">Loading. Please wait</string><!--正在加载，请稍候...  -->
+    <string name="failure">Error. Please try again later</string><!-- 数据加载失败，请稍后再试！ -->
+    <string name="prompt">Tips</string><!-- 温馨提示 -->
+    <string name="do_option">operation</string><!-- 操作 -->
+    <string name="setnetwork">No network. check your settings</string><!--当前无可用网络，是否设置网络？  -->
+    <string name="setting_yes_mobile">set your network</string><!--设置网络  -->
+    <string name="setting_no">Cancel to exit the application</string><!-- 取消退出 -->
+    <string name="btn_submit">submit</string><!-- 提交 -->
+    <string name="btn_sure_text">confirm</string><!--确定  -->
+    <string name="btn_cancel">cancel</string><!-- 取消 -->
+    <string name="yes">Yes</string><!--  -->
+    <string name="no">No</string><!--  -->
+    <string name="complete">complete.</string><!-- 完成 -->
+    <string name="logoff">log off.</string><!-- 注销 -->
+    <!-- SFImageView 的加载提示字符 -->
+    <string name="sfimageview_hint_loading">Loading...</string>
+</resources> 

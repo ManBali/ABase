@@ -1,0 +1,6 @@
+# view res/layout/alert_dialog.xml #generated:76
+-keep class cn.pedant.SweetAlert.SuccessTickView { <init>(...); }
+
+# view res/layout/alert_dialog.xml #generated:111
+-keep class com.pnikosis.materialishprogress.ProgressWheel { <init>(...); }
+

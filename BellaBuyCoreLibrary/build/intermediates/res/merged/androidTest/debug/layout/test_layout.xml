@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/mimage"
+        android:layout_width="86dp"
+        android:layout_height="264dp"
+         />
+
+</LinearLayout><!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/res/layout/test_layout.xml --><!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/layout/test_layout.xml -->

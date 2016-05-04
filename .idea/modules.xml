@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ABase.iml" filepath="$PROJECT_DIR$/ABase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BellaBuyCoreLibrary/BellaBuyCoreLibrary.iml" filepath="$PROJECT_DIR$/BellaBuyCoreLibrary/BellaBuyCoreLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Demo/Demo.iml" filepath="$PROJECT_DIR$/Demo/Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" filepath="$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+     <item type="id" name="left_button">false</item>
+     <item type="id" name="center_button">false</item>
+     <item type="id" name="right_button">false</item>
+     <item type="id" name="tv_id">false</item>
+     <item type="id" name="pb_id">false</item>
+     <item type="id" name="glide_tag"></item>
+</resources>

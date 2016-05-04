@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exit_app">Нажмите еще раз для выхода из программы!</string><!-- 再按一次退出程序 -->
+    <string name="not_network">Нет соединения с интернетом,Проверьте, пожалуйста!</string><!-- 当前网络不可用，network is not available. check your network settings.请检查网络设置 -->
+    <string name="no_connections">Нет соединения с интернетом. Пожалуйста, попробуйте снова!</string><!--网络好像不给力哦，请稍候再试 -->
+    <string name="http_response">Сервер не доступен.</string><!--服务器暂时连接不上  -->
+    <string name="time_out">Нет соединения с интернетом. Пожалуйста, попробуйте снова!</string><!-- 网络不稳定，请稍候再试... -->
+    <string name="error">Произошла ошибка. Пожалуйста, попробуйте еще раз.</string><!-- 加载数据出现错误，请稍候再试... -->
+    <string name="load">Загрузка... Подождите, пожалуйста!</string><!-- 正在加载数据，请稍候... -->
+    <string name="please_wait">Загрузка... Подождите, пожалуйста!</string><!--正在加载数据，请稍候 ...  -->
+    <string name="pull_to_next">Нажми, чтобы получить больше!</string><!-- 点击获取更多... -->
+    <string name="pull_to_loading">Загрузка... Подождите, пожалуйста!</string><!--正在加载，请稍候...  -->
+    <string name="failure">Произошла ошибка. Пожалуйста, попробуйте еще раз.</string><!-- 数据加载失败，请稍后再试！ -->
+    <string name="prompt">Внимание</string><!-- 温馨提示 -->
+    <string name="do_option">Работа</string><!-- 操作 -->
+    <string name="setnetwork">Нет соединения с интернетом. Зайдите в Настройки?</string><!--当前无可用网络，是否设置网络？  -->
+    <string name="setting_yes_mobile">Настройки сети</string><!--设置网络  -->
+    <string name="setting_no">Отмена</string><!-- 取消退出 -->
+    <string name="btn_submit">Отправить</string><!-- 提交 -->
+    <string name="btn_sure_text">Готово</string><!--确定  -->
+    <string name="btn_cancel">Отмена</string><!-- 取消 -->
+    <string name="yes">Да</string><!-- yes -->
+    <string name="no">Нет</string><!-- no -->
+    <string name="complete">Готово.</string><!-- 完成 -->
+    <string name="logoff">Выйти.</string><!-- 注销 -->
+    <!-- SFImageView 的加载提示字符 -->
+    <string name="sfimageview_hint_loading">Loading...</string>
+</resources> 

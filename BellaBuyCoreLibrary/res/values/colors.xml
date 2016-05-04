@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="text_white">#FFFFFF</color>
+	<color name="text_black">#000000</color>
+	<color name="transparent">#00000000</color> 
+	<color name="half_transparent">#7f888888</color>
+	<color name="text_half_transparent">#70000000</color>
+	<color name="customactivityoncrash_primary">#3F51B5</color>
+    <color name="customactivityoncrash_primary_dark">#283593</color>
+    <color name="customactivityoncrash_accent">#FF4081</color>
+
+</resources>

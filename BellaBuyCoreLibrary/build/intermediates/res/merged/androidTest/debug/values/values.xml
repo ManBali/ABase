@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="blue_btn_bg_color">#AEDEF4</color>
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <color name="customactivityoncrash_accent">#FF4081</color>
+    <color name="customactivityoncrash_primary">#3F51B5</color>
+    <color name="customactivityoncrash_primary_dark">#283593</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="error_stroke_color">#F27474</color>
+    <color name="float_transparent">#00000000</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <color name="half_transparent">#7f888888</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="material_blue_grey_80">#ff37474f</color>
+    <color name="material_blue_grey_90">#ff263238</color>
+    <color name="material_blue_grey_95">#ff21272b</color>
+    <color name="material_deep_teal_20">#ff80cbc4</color>
+    <color name="material_deep_teal_50">#ff009688</color>
+    <color name="red_btn_bg_color">#DD6B55</color>
+    <color name="red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="success_stroke_color">#A5DC86</color>
+    <color name="sweet_dialog_bg_color">#FFFFFF</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <color name="text_black">#000000</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="text_color">#575757</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <color name="text_half_transparent">#70000000</color>
+    <color name="text_white">#FFFFFF</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <color name="transparent">#00000000</color>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="warning_stroke_color">#F8BB86</color>
+    <declare-styleable name="CircularImageView"><attr format="boolean" name="border"/><attr format="color" name="border_color"/><attr format="dimension" name="border_width"/><attr format="boolean" name="selector"/><attr format="color" name="selector_color"/><attr format="color" name="selector_stroke_color"/><attr format="dimension" name="selector_stroke_width"/><attr format="boolean" name="shadow"/><attr format="boolean" name="border_overlay"/></declare-styleable>
+    <declare-styleable name="CropImageView"><attr format="reference" name="imgSrc"/><attr name="cropMode"><enum name="ratio_fit_image" value="0"/><enum name="ratio_4_3" value="1"/><enum name="ratio_3_4" value="2"/><enum name="ratio_1_1" value="3"/><enum name="ratio_16_9" value="4"/><enum name="ratio_9_16" value="5"/><enum name="ratio_free" value="6"/><enum name="ratio_custom" value="7"/><enum name="circle" value="8"/></attr><attr format="color" name="backgroundColor"/><attr format="color" name="overlayColor"/><attr format="color" name="frameColor"/><attr format="color" name="handleColor"/><attr format="color" name="guideColor"/><attr name="guideShowMode"><enum name="show_always" value="1"/><enum name="show_on_touch" value="2"/><enum name="not_show" value="3"/></attr><attr name="handleShowMode"><enum name="show_always" value="1"/><enum name="show_on_touch" value="2"/><enum name="not_show" value="3"/></attr><attr format="dimension" name="handleSize"/><attr format="dimension" name="touchPadding"/><attr format="dimension" name="minFrameSize"/><attr format="dimension" name="frameStrokeWeight"/><attr format="dimension" name="guideStrokeWeight"/><attr format="boolean" name="cropEnabled"/><attr format="float" name="initialFrameScale"/></declare-styleable>
+    <declare-styleable name="CustomCircularImageViewTheme"><attr format="reference" name="circularImageViewStyle"/></declare-styleable>
+    <declare-styleable name="ProgressWheel"><attr format="boolean" name="matProg_progressIndeterminate"/><attr format="color" name="matProg_barColor"/><attr format="color" name="matProg_rimColor"/><attr format="dimension" name="matProg_rimWidth"/><attr format="float" name="matProg_spinSpeed"/><attr format="integer" name="matProg_barSpinCycleTime"/><attr format="dimension" name="matProg_circleRadius"/><attr format="boolean" name="matProg_fillRadius"/><attr format="dimension" name="matProg_barWidth"/><attr format="boolean" name="matProg_linearProgress"/></declare-styleable>
+    <declare-styleable name="Rotate3dAnimation"><attr format="enum" name="rollType"><enum name="x" value="0"/><enum name="y" value="1"/><enum name="z" value="2"/></attr><attr format="float" name="fromDeg"/><attr format="float" name="toDeg"/><attr format="fraction" name="pivotX"/><attr format="fraction" name="pivotY"/></declare-styleable>
+    <declare-styleable name="SwipeListView"><attr format="boolean" name="swipeOpenOnLongPress"/><attr format="integer" name="swipeAnimationTime"/><attr format="dimension" name="swipeOffsetLeft"/><attr format="dimension" name="swipeOffsetRight"/><attr format="boolean" name="swipeCloseAllItemsWhenMoveList"/><attr format="reference" name="swipeFrontView"/><attr format="reference" name="swipeBackView"/><attr format="enum" name="swipeMode"><enum name="none" value="0"/><enum name="both" value="1"/><enum name="right" value="2"/><enum name="left" value="3"/></attr><attr format="enum" name="swipeActionLeft"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/></attr><attr format="enum" name="swipeActionRight"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/></attr></declare-styleable>
+    <declare-styleable name="myview_sf_imageview"><attr format="boolean" name="NeedCornerStyle"/></declare-styleable>
+    <declare-styleable name="xgridview"><attr format="boolean" name="isDetailPage"/></declare-styleable>
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <item name="center_button" type="id">false</item>
+    <item name="glide_tag" type="id"/>
+    <item name="left_button" type="id">false</item>
+    <item name="pb_id" type="id">false</item>
+    <item name="right_button" type="id">false</item>
+    <item name="tv_id" type="id">false</item>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="LOADING">Loading...</string>
+    <string name="app_name">SweetAlertDialog</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <string name="btn_cancel">cancel</string>
+    <string name="btn_submit">submit</string>
+    <string name="btn_sure_text">confirm</string>
+    <string name="complete">complete.</string>
+    <string name="confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="confirm_install_hint">Tips</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/main/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="default_progressbar">Default Progressbar:</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <string name="do_option">operation</string>
+    <string name="error">network instability. try again later</string>
+    <string name="exit_app">press again to exit the program.</string>
+    <string name="failure">Error. Please try again later</string>
+    <string name="http_response">server is not available.</string>
+    <string name="load">loading, Please wait</string>
+    <string name="logoff">log off.</string>
+    <string name="no">No</string>
+    <string name="no_connections">try again later.</string>
+    <string name="not_network">Mobuy can\'t connect to the net.</string>
+    <string name="please_wait">Loading. Please wait</string>
+    <string name="prompt">Tips</string>
+    <string name="pull_to_loading">Loading. Please wait</string>
+    <string name="pull_to_next">More</string>
+    <string name="setnetwork">No network. check your settings</string>
+    <string name="setting_no">Cancel to exit the application</string>
+    <string name="setting_yes_mobile">set your network</string>
+    <string name="sfimageview_hint_loading">Loading...</string>
+    <string name="time_out">server is not available</string>
+    <string name="yes">Yes</string>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/float_transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <style name="base_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/exploded-aar/ABase/SweetAlertLibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="dialog_blue_button" parent="android:Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:background">@drawable/blue_button_background</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">21dp</item>
+        <item name="android:paddingRight">21dp</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+    <!-- From: file:/E:/WorkSpace_BellaBuy/AndroidStudioWorkSpace/99Buy/99Buy1.5/ABase/BellaBuyCoreLibrary/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
+    <style name="layout_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="layout_fill_wrap">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="layout_wrap_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="layout_wrap_fill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+</resources>
