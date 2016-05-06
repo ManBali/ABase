@@ -1,0 +1,42 @@
+<resources>
+    <dimen name="title_hight">50dip</dimen>
+    <dimen name="tab_strip_hight">40dip</dimen>
+    
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+	<dimen name="album_past_space">8dp</dimen>
+	<dimen name="album_margin">8dp</dimen>
+	
+	<dimen name="recommended_corner">4dip</dimen>
+	
+	<dimen name="staggered_gridView_hight">1460dip</dimen>
+	<dimen name="staggered_gridView_hight_1">10dip</dimen>
+	<dimen name="staggered_gridView_hight_0">300dip</dimen>
+	
+	<dimen name="shopping_cart_type">30dip</dimen>
+
+	<dimen name="bubble_rdios">25dip</dimen>
+	<dimen name="order_evaluate_content_padding">15dip</dimen>
+	<dimen name="splash_logo_bottom">180dip</dimen>
+	
+	<dimen name="cate_item_size">70dip</dimen>
+	
+	<!-- 购物车适配 -->
+	<dimen name="shop_card_size_and_color_distance">140dip</dimen>
+	
+	
+	<dimen name="home_menu_share_size">40dip</dimen>
+	
+	<!-- 主界面的时钟倒计时 -->
+	<dimen name="home_menu_time_count_size">50dip</dimen>
+	
+    <!-- Margin for restart button -->
+    <dimen name="restart_button_margin">16dp</dimen>
+    
+    <dimen name="activity_error_details_text_size">12sp</dimen>
+
+	<dimen name="dime_forty">40dip</dimen>
+
+	<dimen name="txt_sp_large">17sp</dimen>
+</resources>

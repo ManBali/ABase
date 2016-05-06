@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_fill"
+    android:background="@color/text_white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.bellabuy.widgets.TitleView
+        android:id="@id/title_iv_id"
+        style="@style/layout_fill_wrap" />
+
+
+    <FrameLayout
+        android:id="@+id/fl_panent_id"
+        style="@style/layout_fill">
+
+        <LinearLayout
+            android:id="@id/view_mainBody"
+            style="@style/layout_fill"
+            android:orientation="vertical" />
+
+    </FrameLayout>
+
+</LinearLayout>
