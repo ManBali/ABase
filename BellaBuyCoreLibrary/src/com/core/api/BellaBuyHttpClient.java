@@ -22,7 +22,7 @@ public class BellaBuyHttpClient {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年2月1日 上午12:17:27
 	 * @Description: 取消所有请求，适用于Activity在Destory
 	 */
@@ -31,7 +31,7 @@ public class BellaBuyHttpClient {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月29日 下午8:58:23
 	 * @Description: 配置RequestParams
 	 * @param params
@@ -48,7 +48,7 @@ public class BellaBuyHttpClient {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月29日 下午9:00:23
 	 * @Description: GET请求
 	 * @param url
@@ -78,7 +78,7 @@ public class BellaBuyHttpClient {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月29日 下午9:00:39
 	 * @Description: POST请求
 	 * @param url
@@ -101,7 +101,7 @@ public class BellaBuyHttpClient {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月29日 下午9:02:13
 	 * @Description: 拼接完整URL
 	 * @param relativeUrl

@@ -299,7 +299,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     }
     
     /**
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2014骞�2鏈�6鏃�涓嬪崍8:38:11
      * @Description: false锛氱偣鍑昏繑鍥炰笉鍏抽棴瀵硅瘽妗嗭紝榛樿涓簍rue
      * @param flag

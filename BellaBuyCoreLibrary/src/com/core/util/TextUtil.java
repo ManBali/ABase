@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 /**
  * 文本工具类
- * @author caibing.zhang
+ * @author sufun.wu
  *
  */
 public class TextUtil {
@@ -79,7 +79,7 @@ public class TextUtil {
 	
 	/**
 	 * 
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2012-6-26 下午10:38:11
 	 * @Description: 字符串转InputStream
 	 * @param xml
@@ -134,7 +134,7 @@ public class TextUtil {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2013-4-10 下午6:41:45
 	 * @Description: 格式化，保留二位小数
 	 * @param value

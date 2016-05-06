@@ -143,7 +143,7 @@ public class FileUtil {
 	}
     
     /**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2013-11-14 下午8:46:55
 	 * @Description: 删除指定文件夹下所有文件
 	 * @param path 文件夹绝对路径
@@ -184,7 +184,7 @@ public class FileUtil {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2013-11-14 下午8:46:10
 	 * @Description: 删除文件,包括文件夹
 	 * @param folderPath 文件夹绝对路径
@@ -202,7 +202,7 @@ public class FileUtil {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2013-11-22 下午2:28:45
 	 * @Description: Java文件操作 获取文件扩展名
 	 * @param filename
@@ -234,7 +234,7 @@ public class FileUtil {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年3月7日 下午5:44:18
 	 * @Description: 获得某个文件的大小
 	 * @param file

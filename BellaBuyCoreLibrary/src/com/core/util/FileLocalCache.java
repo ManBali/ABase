@@ -22,7 +22,7 @@ import java.security.MessageDigest;
 
 /**
  * 缓存
- * @author caibing.zhang
+ * @author sufun.wu
  *
  */
 public class FileLocalCache {

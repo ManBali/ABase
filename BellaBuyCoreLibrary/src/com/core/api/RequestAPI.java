@@ -2,7 +2,7 @@ package com.core.api;
 
 
 /**
- * @author caibing.zhang
+ * @author sufun.wu
  * @createdate 2015年1月31日 下午12:25:09
  * @Description: 请求API
  */
@@ -18,7 +18,7 @@ public class RequestAPI {
 		return BASE_URL +"webview/goodsdesc.php?id="+ methodName;
 	}	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2014年8月25日 下午5:05:52
 	 * @Description: 获取图片相对路径
 	 * @param imgPath

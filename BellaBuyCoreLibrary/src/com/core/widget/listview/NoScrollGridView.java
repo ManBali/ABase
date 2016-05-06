@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.GridView;
 
 /**
- * @author caibing.zhang
+ * @author sufun.wu
  * @createdate 2015年3月18日 下午3:29:41
  * @Description: 扩展GridView,解决与ScrollView冲突不能展开问题
  */

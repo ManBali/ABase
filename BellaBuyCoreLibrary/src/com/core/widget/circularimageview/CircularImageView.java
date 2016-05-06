@@ -21,7 +21,7 @@ import android.widget.ImageView;
 import com.core.R;
 
 /**
- * @author caibing.zhang
+ * @author sufun.wu
  * @createdate 2015年1月26日 下午10:49:34
  * @Description: 圆角，详见：git
  */

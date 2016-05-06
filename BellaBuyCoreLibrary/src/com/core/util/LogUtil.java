@@ -6,7 +6,7 @@ import com.core.util.constants.CoreConstant;
 import com.core.util.log.CoreLog;
 
 /**
- * @author caibing.zhang
+ * @author sufun.wu
  * @createdate 2012-9-17 下午4:01:04
  * @Description: 日志
  */

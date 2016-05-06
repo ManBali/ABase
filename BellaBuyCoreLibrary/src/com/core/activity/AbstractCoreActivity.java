@@ -54,7 +54,7 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	public abstract Dialog showWaitDialog(String message,boolean cancelable);
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2012-6-6 下午1:57:01
 	 * @Description: 显示异步交互后的数据,隐藏加载框
 	 */
@@ -91,7 +91,7 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月18日 上午10:44:00
 	 * @Description:  一个按钮对话框
 	 * @param alertType 对话框类型
@@ -123,7 +123,7 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月18日 上午10:44:00
 	 * @Description:  一个按钮对话框
 	 * @param alertType 对话框类型
@@ -148,7 +148,7 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月18日 上午11:29:45
 	 * @Description: 双按钮对话框
 	 * @param alertType 对话框类型
@@ -178,7 +178,7 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年1月18日 上午11:29:45
 	 * @Description: 双按钮对话框
 	 * @param alertType 对话框类型

@@ -2,7 +2,7 @@ package com.core.api;
 
 
 /**
- * @author caibing.zhang
+ * @author sufun.wu
  * @createdate 2015年1月17日 下午10:35:26
  * @Description: 错误码说明
  */
@@ -10,7 +10,7 @@ public class ConstantsCode {
 
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年3月18日 下午2:06:09
 	 * @Description: 成功状态码
 	 * @param code
@@ -34,7 +34,7 @@ public class ConstantsCode {
 	}
 
 	/**
-	 * @author caibing.zhang
+	 * @author sufun.wu
 	 * @createdate 2015年3月18日 下午2:05:43
 	 * @Description: 失败错误码
 	 * @return
