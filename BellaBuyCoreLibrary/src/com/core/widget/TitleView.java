@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bellabuy.nnbuy.R;
-import com.bellabuy.utils.AndroidUtil;
+import com.core.R;
+import com.core.util.AndroidUtil;
 
 public class TitleView extends FrameLayout {
 
@@ -21,7 +21,6 @@ public class TitleView extends FrameLayout {
 	public TextView mTitle;
 	
 	public ImageView mShopBagImageView;
-	public SFBubbleButtonView mBubbleButton;
 	public EditText titleSearch;
 
 	public Button mPhoto;
@@ -77,23 +76,11 @@ public class TitleView extends FrameLayout {
 		mTitle = (TextView)view.findViewById(R.id.title_text);
 		mPhoto = (Button) view.findViewById(R.id.order_passport_photo);
 		mShopBagImageView=(ImageView)view.findViewById(R.id.img_shopping_card);
-		mBubbleButton=(SFBubbleButtonView)view.findViewById(R.id.bubble_shopping_cart);
 		titleSearch = (EditText) view.findViewById(R.id.title_search);
 
 //		mLikeImageView=(ImageView)view.findViewById(R.id.img_like);
 //		mLikeBubbleButton=(SFBubbleButtonView)view.findViewById(R.id.bubble_like);
 
-		mBubbleButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if(mBubbleButtonClickListerner!=null)
-				{
-					mBubbleButtonClickListerner.onClick(v);
-				}
-			}
-		});
 
 		mShopBagImageView.setOnClickListener(new OnClickListener() {
 
@@ -106,30 +93,6 @@ public class TitleView extends FrameLayout {
 				}
 			}
 		});
-//
-//		mLikeImageView.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				if(mBubbleButtonClickListerner!=null)
-//				{
-//					mBubbleButtonClickListerner.onClick(v);
-//				}
-//			}
-//		});
-
-//		mLikeBubbleButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				if(mBubbleButtonClickListerner!=null)
-//				{
-//					mBubbleButtonClickListerner.onClick(v);
-//				}
-//			}
-//		});
 	}
 
 	public void setTitleName(String text) {
@@ -177,14 +140,6 @@ public class TitleView extends FrameLayout {
 		mRightBtn2.setVisibility(View.VISIBLE);
 		mRightBtn2.setText(text);
 		mRightBtn2.setOnClickListener(listener);
-//		mRightBtn.setTextColor(getResources().getColor(R.color.app_bg));
-//		mRightBtn.setVisibility(View.VISIBLE);
-//		mRightBtn.setBackgroundResource(resid);
-//		mRightBtn.setMinWidth(AndroidUtil.dip2px(getContext(), 100));
-//		RelativeLayout.LayoutParams params=(android.widget.RelativeLayout.LayoutParams) mRightBtn.getLayoutParams();
-//		params.width=params.width+50;
-//		mRightBtn.setLayoutParams(params);
-//		mOnRightButtonClickListener = listener;
 	}
 
 	/**

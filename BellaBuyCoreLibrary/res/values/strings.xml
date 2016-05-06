@@ -25,4 +25,16 @@
     <string name="logoff">log off.</string><!-- 注销 -->
     <!-- SFImageView 的加载提示字符 -->
     <string name="sfimageview_hint_loading">Loading...</string>
+    <string name="confirm">Done</string>
+
+    <!--Payssion支付提示-->
+    <string name="dialog_payssion_pay_success_title">订单提醒</string>
+    <string name="dialog_payssion_pay_content">订单已经提交,系统正在确认,请稍等......</string>
+    <string name="dialog_payssion_pay_confirm">确定</string>
+
+    <string name="status_code_404">Service error 404, please try again. If the error persists check your internet or contact customer support.</string>
+    <string name="status_code_500">Service error 500, please try again.</string>
+    <string name="error_code_no_data">Empty</string>
+
+    <string name="load_error">Data Loading Error</string>
 </resources> 

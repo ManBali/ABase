@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/BellaBuyCoreLibrary/BellaBuyCoreLibrary.iml" filepath="$PROJECT_DIR$/BellaBuyCoreLibrary/BellaBuyCoreLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Demo/Demo.iml" filepath="$PROJECT_DIR$/Demo/Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" filepath="$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/croutonLibrary/croutonLibrary.iml" filepath="$PROJECT_DIR$/croutonLibrary/croutonLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
     </modules>
   </component>

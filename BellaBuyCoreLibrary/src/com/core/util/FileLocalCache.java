@@ -1,5 +1,8 @@
 package com.core.util;
 
+import com.core.CoreApplication;
+import com.core.util.constants.CoreConstant;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,10 +18,6 @@ import java.io.OutputStream;
 import java.io.StreamCorruptedException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-
-import com.bellabuy.activity.core.MyApplication;
-import com.bellabuy.utils.constant.Constants;
-import com.core.util.constants.CoreConstant;
 
 
 /**
@@ -86,7 +85,7 @@ public class FileLocalCache {
 	 */
 	public static String getCacheSize() {
 		long size = 0;
-		File f = new File(MyApplication.CACHE_DIR_SD);
+		File f = new File(CoreApplication.CACHE_DIR_SD);
 		if (f.exists() && f.isDirectory()) {
 			File flist[] = f.listFiles();
 			for (int i = 0; flist != null && i < flist.length; i++) {
@@ -111,7 +110,7 @@ public class FileLocalCache {
 	 */
 	public static String load2(String url)throws Exception {
 		String md5 = md5(url);
-		File f = new File(MyApplication.CACHE_DIR_SD + md5);
+		File f = new File(CoreApplication.CACHE_DIR_SD + md5);
 		long expiredTime = 600000; 
 		//数据在10分钟有效内
 		if (f.exists() && System.currentTimeMillis() - f.lastModified() < expiredTime) {
@@ -136,9 +135,9 @@ public class FileLocalCache {
 	 * @param c
 	 */
 	public static void store(String url, String c) {
-		if(MyApplication.IS_EXIST_SDCARD){
+		if(CoreApplication.IS_EXIST_SDCARD){
 			String md5 = md5(url);
-			File f = new File(MyApplication.CACHE_DIR_SD + md5);
+			File f = new File(CoreApplication.CACHE_DIR_SD + md5);
 			try {
 				FileOutputStream out;
 				out = new FileOutputStream(f);
@@ -184,7 +183,7 @@ public class FileLocalCache {
 	
 	/**
 	 * 关闭输出流
-	 * @param in
+	 * @param
 	 */
 	public static void closeOutputStream(OutputStream out){
 		try {
@@ -206,10 +205,10 @@ public class FileLocalCache {
 		if(!CoreConstant.IS_TEST_FLAG){  //不保存加载数据
 			return;
 		}
-		if(MyApplication.IS_EXIST_SDCARD && TextUtil.stringIsNotNull(message)){
+		if(CoreApplication.IS_EXIST_SDCARD && TextUtil.stringIsNotNull(message)){
 			try {
 				//替换写入
-				File file=new File(MyApplication.LOG);
+				File file=new File(CoreApplication.LOG);
 				if (!file.exists()){
 					file.createNewFile();
 				}
@@ -219,7 +218,7 @@ public class FileLocalCache {
 				out.close();
 				
 				//追加写文件
-				File allFile=new File(MyApplication.AllLOG);
+				File allFile=new File(CoreApplication.AllLOG);
 				if (!allFile.exists()){
 					allFile.createNewFile();
 				}
@@ -244,10 +243,10 @@ public class FileLocalCache {
 	 */
 	public static Object getSerializableData(int type,String fileName) {
 		String dir;
-		if(Constants.CACHE_DIR_SD==type){  //缓存在SD卡中
-			dir=MyApplication.CACHE_DIR_SD;
+		if(CoreConstant.CACHE_DIR_SD==type){  //缓存在SD卡中
+			dir=CoreApplication.CACHE_DIR_SD;
 		}else{  //缓存在SYSTEM文件中
-			dir=MyApplication.CACHE_DIR_SYSTEM;
+			dir=CoreApplication.CACHE_DIR_SYSTEM;
 		}
 		Object obj = null;
 		try {
@@ -285,15 +284,15 @@ public class FileLocalCache {
 	 * 取得序列化数据
 	 * @param type 缓存文件在SD卡中，还是在SYSTEM中Constants.CACHE_DIR_SD,Constants.CACHE_DIR_SYSTEM
 	 * @param fileName 
-	 * @param 缓存文件有效时间
+	 * @param time 缓存文件有效时间
 	 * @return
 	 */
 	public static Object getSerializableData(int type,String fileName,long time) {
 		String dir;
-		if(Constants.CACHE_DIR_SD==type){  //缓存在SD卡中
-			dir=MyApplication.CACHE_DIR_SD;
+		if(CoreConstant.CACHE_DIR_SD==type){  //缓存在SD卡中
+			dir=CoreApplication.CACHE_DIR_SD;
 		}else{  //缓存在SYSTEM文件中
-			dir=MyApplication.CACHE_DIR_SYSTEM;
+			dir=CoreApplication.CACHE_DIR_SYSTEM;
 		}
 		Object obj = null;
 		try {
@@ -335,15 +334,15 @@ public class FileLocalCache {
 	/**
 	 * 进行序列化
 	 * @param type 缓存文件在SD卡中，还是在SYSTEM中Constants.CACHE_DIR_SD,Constants.CACHE_DIR_SYSTEM
-	 * @param cookies
+	 * @param obj
 	 * @param fileName 
 	 */
 	public static void setSerializableData(int type,Object obj,String fileName) {
 		String dir;
-		if(Constants.CACHE_DIR_SD==type){  //缓存在SD卡中
-			dir=MyApplication.CACHE_DIR_SD;
+		if(CoreConstant.CACHE_DIR_SD==type){  //缓存在SD卡中
+			dir=CoreApplication.CACHE_DIR_SD;
 		}else{  //缓存在SYSTEM文件中
-			dir=MyApplication.CACHE_DIR_SYSTEM;
+			dir=CoreApplication.CACHE_DIR_SYSTEM;
 		}
 		try {
 			FileOutputStream bytetOut = new FileOutputStream(new File(dir + md5(fileName)));
@@ -368,10 +367,10 @@ public class FileLocalCache {
 	 */
 	public static void delSerializableData(int type,String fileName){
 		String dir;
-		if(Constants.CACHE_DIR_SD==type){  //缓存在SD卡中
-			dir=MyApplication.CACHE_DIR_SD;
+		if(CoreConstant.CACHE_DIR_SD==type){  //缓存在SD卡中
+			dir=CoreApplication.CACHE_DIR_SD;
 		}else{  //缓存在SYSTEM文件中
-			dir=MyApplication.CACHE_DIR_SYSTEM;
+			dir=CoreApplication.CACHE_DIR_SYSTEM;
 		}
 		File d = new File(dir);
 		if (!d.exists()){

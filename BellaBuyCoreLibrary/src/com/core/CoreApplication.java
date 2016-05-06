@@ -1,6 +1,7 @@
 package com.core;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.multidex.MultiDexApplication;
 
@@ -8,6 +9,7 @@ import com.core.util.constants.CoreConstant;
 import com.core.util.file.FileUtil;
 import com.core.util.file.SharedPreferenceUtil;
 import com.core.util.log.CoreLog;
+import com.core.util.network.ListenNetStateService;
 
 import java.io.Serializable;
 
@@ -30,6 +32,9 @@ public class CoreApplication extends MultiDexApplication implements Serializable
 	public static String IMAGE_UPLOAD_TEMP; // 上传图片临时目录
 	public static String LOG; // 日志保存的SD卡的目录
 	public static String AllLOG;
+
+	public static int mScreenWidth=0;  //应用的屏幕的宽度
+	public static int mScreenHeight=0; //应用的屏幕的高度
 
 	private boolean LOGIN_STATE = false;// 登陆状态默认为离线状态 false true:登陆状态
 
@@ -102,9 +107,14 @@ public class CoreApplication extends MultiDexApplication implements Serializable
 		FileUtil.checkDir(IMAGE_DIR);
 		FileUtil.checkDir(FILE_DIR);
 		FileUtil.checkDir(LOG_DIR);
-		// FileUtil.checkDir(IMAGE_UPLOAD_TEMP);
+		FileUtil.checkDir(IMAGE_UPLOAD_TEMP);
 		FileUtil.checkDir(CACHE_DIR_SYSTEM);
-		// TerminalUtils.getInstance(getApplicationContext()).initTerminalID();
+
+		//启动网络检测服务
+		Intent netService=new Intent();
+		netService.setClass(this, ListenNetStateService.class);
+		this.startService(netService);
+		//this.startService()
 	}
 
 	@Override
@@ -122,80 +132,4 @@ public class CoreApplication extends MultiDexApplication implements Serializable
 		//VolleyTool.getInstance(this).release();
 		super.onTerminate();
 	}
-
-//	File cacheDir;
-//	/**
-//	 * 图片下载器
-//	 */
-//	public ImageLoader imageLoader = null;
-//
-//	/**
-//	 * 图片下载缓存处理器
-//	 */
-//	public DisplayImageOptions options;
-//	/**
-//	 * 带有圆角的图片显示器
-//	 */
-//	public DisplayImageOptions option_corner;
-//
-//	/**
-//	 * 2015年4月21日 16:56:57
-//	 * 
-//	 * @author sufun 用于初始化图片的展示引擎
-//	 */
-//	@SuppressWarnings("deprecation")
-//	public void initImageLoader() {
-//		
-//		
-//		cacheDir = StorageUtils.getOwnCacheDirectory(this, IMAGE_DIR);// 图片存储的地址
-//	
-//		
-//		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-//				this)
-//				.memoryCacheExtraOptions(480, 800)
-//				// max width, max height
-//				.threadPoolSize(3)
-//				.threadPriority(Thread.NORM_PRIORITY - 2)
-//				.denyCacheImageMultipleSizesInMemory()
-//				.memoryCache(new WeakMemoryCache())//new UsingFreqLimitedMemoryCache(2 * 1024 * 1024)
-//				// You can pass your own memory cache implementation
-//				.discCache(new UnlimitedDiscCache(cacheDir))
-//				// You can pass your own disc cache implementation
-//				.defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-//				.discCacheFileNameGenerator(new Md5FileNameGenerator())
-//				.tasksProcessingOrder(QueueProcessingType.LIFO).build();
-//
-//		// Initialize ImageLoader with configuration
-//		imageLoader = ImageLoader.getInstance();
-//		imageLoader.init(config);
-//		
-//		
-//		options = new DisplayImageOptions.Builder()
-//		.showStubImage(R.drawable.wallpapermgr_thumb_default)//wallpapermgr_thumb_default
-//		.showImageForEmptyUri(R.drawable.icon_nodata)
-//		.bitmapConfig(Bitmap.Config.RGB_565)
-//		.showImageOnFail(R.drawable.icon_nodata)
-//		.cacheInMemory(false)//如果经常出现这个问题，则需要使用这个  
-//		.displayer(new FadeInBitmapDisplayer(200))// 设置成淡入的效果
-//		// .displayer(new RoundedBitmapDisplayer(8))//设置图像的圆角效果
-//		.imageScaleType(ImageScaleType.EXACTLY)
-//		.cacheOnDisc(true).build();
-//	}
-//
-//	/**
-//	 * 2015年4月22日 14:04:51
-//	 * @author sufun
-//	 * @describe 初始化带有圆角的图片加载器
-//	 */
-//	private void initCornerOption() {
-//		option_corner = new DisplayImageOptions.Builder()
-//				.showStubImage(R.drawable.wallpapermgr_thumb_default)
-//				.showImageForEmptyUri(R.drawable.icon_nodata)
-//				.showImageOnFail(R.drawable.icon_nodata).cacheInMemory(true)
-//				//.displayer(new FadeInBitmapDisplayer(200))// 设置成淡入的效果
-//				.displayer(new RoundedBitmapDisplayer(8))//设置图像的圆角效果
-//				.cacheOnDisc(true).build();
-//
-//	}
-
 }

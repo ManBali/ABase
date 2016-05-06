@@ -25,4 +25,5 @@
     <string name="logoff">log off.</string><!-- 注销 -->
     <!-- SFImageView 的加载提示字符 -->
     <string name="sfimageview_hint_loading">Loading...</string>
+    <string name="menu_right_search_hint">Search Mobuy!</string>
 </resources> 

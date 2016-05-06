@@ -1,5 +1,4 @@
 package com.core.activity;
-
 import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -15,7 +14,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -23,48 +21,30 @@ import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.bellabuy.activity.center.GuideUserActivity_;
-import com.bellabuy.activity.home.MainActivity;
-import com.bellabuy.api.BellaBuyHttpClient;
-import com.bellabuy.api.ConstantsCode;
-import com.bellabuy.api.RequestAPI;
-import com.bellabuy.customactivityoncrash.activity.CustomErrorActivity;
-import com.bellabuy.model.BaseBean;
-import com.bellabuy.model.im.IMUserDataList;
-import com.bellabuy.model.im.IMUserInfo;
-import com.bellabuy.model.user.UserInfo;
-import com.bellabuy.model.version.VersionListBean;
-import com.bellabuy.nnbuy.R;
-import com.bellabuy.utils.AndroidUtil;
-import com.bellabuy.utils.FileLocalCache;
-import com.bellabuy.utils.LogUtil;
-import com.bellabuy.utils.constant.Constants;
-import com.bellabuy.widgets.TitleView;
-import com.bellabuy.widgets.svgview.PathView;
-import com.core.customactivityoncrash.CustomActivityOnCrash;
+import com.core.CoreApplication;
+import com.core.R;
+import com.core.api.BellaBuyHttpClient;
+import com.core.api.ConstantsCode;
+import com.core.model.BaseBean;
+import com.core.util.AndroidUtil;
+import com.core.util.FileLocalCache;
+import com.core.util.LogUtil;
 import com.core.util.NetWorkUtil;
+import com.core.util.constants.CoreConstant;
 import com.core.util.file.FileUtil;
-import com.core.util.file.SharedPreferenceUtil;
 import com.core.util.image.ImageUtil;
 import com.core.util.image.XUtilsImageLoader;
-import com.easemob.EMCallBack;
-import com.easemob.chat.EMChatManager;
+import com.core.widget.TitleView;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.tendcloud.tenddata.TCAgent;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -79,9 +59,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import cn.pedant.SweetAlert.SweetAlertDialog.OnSweetClickListener;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+
 
 /**
  * @createdate 2013-12-17 下午2:44:50
@@ -99,8 +79,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //自定义Crash
-        CustomActivityOnCrash.setErrorActivityClass(CustomErrorActivity.class);
         AndroidUtil.addAppActivity(this);
         if (savedInstanceState != null) {
             LogUtil.e("------------恢复------------->>");
@@ -119,10 +97,8 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         }
 
         int[] screenSize = AndroidUtil.getDisplay(this);
-        MyApplication.mScreenWidth = screenSize[0];
-        MyApplication.mScreenHeight = screenSize[1];
-
-
+        CoreApplication.mScreenWidth = screenSize[0];
+        CoreApplication.mScreenHeight = screenSize[1];
     }
 
 
@@ -149,14 +125,9 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
             }
         }
     }
-
-    public MyApplication getMyApplication() {
-        return (MyApplication) getApplication();
-    }
-
     /**
      * @return
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月26日 下午11:09:46
      * @Description: 初始化图片加载工具，方便在内存回收
      */
@@ -172,21 +143,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (isShowShoppingCart) {
-            setShoppingCartNum();
-        }
-        TCAgent.onResume(this);
-        if (MyApplication.analytics != null) {
-            MyApplication.analytics.getSessionClient().resumeSession();
-        }
-        if (MyApplication.SHOPPING_CART_DETAIL) {
-            if (this instanceof MainActivity) {
-                MainActivity.getMainInstance().showShoppingCart();
-                MyApplication.SHOPPING_CART_DETAIL = false;
-            } else {
-                this.finish();
-            }
-        }
     }
 
     @Override
@@ -198,9 +154,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     @Override
     protected void onDestroy() {
         AndroidUtil.removeAppActivity(this);
-        // if(xUtilsImageLoader!=null){
-        // xUtilsImageLoader.clearMemory();
-        // }
         super.onDestroy();
     }
 
@@ -208,41 +161,10 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     protected void onPause() {
         // TODO Auto-generated method stub
         super.onPause();
-        TCAgent.onPause(this);
-        if (MyApplication.analytics != null) {
-            MyApplication.analytics.getSessionClient().pauseSession();
-            MyApplication.analytics.getEventClient().submitEvents();
-        }
     }
 
     /**
-     * @author caibing.zhang
-     * @createdate 2015年1月25日 下午12:47:06
-     * @Description: 设置购物车数量
-     */
-    public void setShoppingCartNum() {
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.shopping_car_id);
-        if (frameLayout != null) {
-            if (MyApplication.SHOPPING_CART_NUM > 0) {
-                frameLayout.setVisibility(View.VISIBLE);
-                TextView numTv = (TextView) findViewById(R.id.shopping_car_text_id);
-                if (MyApplication.SHOPPING_CART_NUM > 99) {
-                    numTv.setText(Constants.SHOPPING_CART_N);
-                } else {
-                    numTv.setText(String.valueOf(MyApplication.SHOPPING_CART_NUM));
-                }
-                Animation shake = AnimationUtils.loadAnimation(this,
-                        R.anim.shake);// 加载动画资源文件
-                findViewById(R.id.shopping_car_id).startAnimation(shake); // 给组件播放动画效果
-            } else {
-                MyApplication.SHOPPING_CART_NUM = 0;
-                frameLayout.setVisibility(View.GONE);
-            }
-        }
-    }
-
-    /**
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月25日 下午12:47:47
      * @Description: 隐藏购物车
      */
@@ -252,7 +174,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
     /**
      * @param message
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2012-9-24 上午9:10:36
      * @Description: 显示Toast消息
      */
@@ -268,7 +190,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
     /**
      * @param message
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2012-9-24 上午9:10:36
      * @Description: 显示Toast消息
      */
@@ -282,7 +204,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     }
 
     /**
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月31日 上午10:47:10
      * @Description: 加载失败显示的页面【显示默认的图片】
      */
@@ -294,7 +216,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
     /**
      * @param resStr 文字资源
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月31日 上午10:47:10
      * @Description: 加载失败显示的页面【显示默认的图片】
      */
@@ -308,7 +230,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     /**
      * @param resImg 图片资源
      * @param resStr 文字资源
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月31日 上午10:46:36
      * @Description: 加载失败显示的页面【设置图片】
      */
@@ -421,14 +343,14 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         // }
 
         /**
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月17日 下午3:10:26
          * @Description: 网络加载成功
          */
         public abstract void loadSuccess(BaseBean bean);
 
         /**
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月17日 下午3:10:49
          * @Description: 网络加载失败：异常处理
          */
@@ -438,7 +360,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
          * @param url
          * @param params 参数
          * @param clazz  json解析的对象
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月20日 下午9:57:39
          * @Description: post
          */
@@ -452,14 +374,14 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
          * @param url
          * @param params    参数
          * @param clazz     json解析的对象
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月20日 下午9:57:39
          * @Description: post
          */
         public void post(boolean isLoading, String url, RequestParams params,
                          Class<? extends BaseBean> clazz) {
             if (params != null && !params.has("pageSize")) {
-                params.put("pageSize", Constants.PAGE_SIZE);
+                params.put("pageSize", CoreConstant.PAGE_SIZE);
             }
             // 没有网络或不需要网络判断
             if (isNetWork && !NetWorkUtil.NETWORK) {
@@ -489,7 +411,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
          * @param url
          * @param params    参数
          * @param clazz     json解析的对象
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月20日 下午9:57:39
          * @Description: post
          */
@@ -520,7 +442,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         /**
          * @param statusCode
          * @return
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月16日 下午10:06:21
          * @Description: 判断返回的判断码
          */
@@ -549,7 +471,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
         /**
          * @param throwable
-         * @author caibing.zhang
+         * @author sufun.wu
          * @createdate 2015年1月16日 下午11:14:15
          * @Description: 处理异常
          */
@@ -561,7 +483,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
                 if (exceptionInfo.indexOf("UnknownHostException") != -1) {
                     showToastCroutonMessage(Style.ALERT, R.string.time_out);
                 } else if (exceptionInfo.indexOf("NoDataException") != -1) {
-                    showToastCroutonMessage(Style.CONFIRM, R.string.no_data);
+                    showToastCroutonMessage(Style.CONFIRM, R.string.error_code_no_data);
                 } else if (exceptionInfo.indexOf("SocketException") != -1) {
                     showToastCroutonMessage(Style.ALERT, R.string.time_out);
                 } else if (exceptionInfo.indexOf("SocketTimeoutException") != -1) {
@@ -619,7 +541,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
                     String mRequestApi = "" + url + "?";
                     if (mParams != null) {
-                        if (Constants.IS_TEST_FLAG) {
+                        if (CoreConstant.IS_TEST_FLAG) {
                             String[] array = mParams.toString().split("&");
                             for (String string : array) {
                                 mRequestApi = mRequestApi + string + "&";
@@ -627,88 +549,20 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
                         }
                     }
                     LogUtil.D("--statusCode-->:" + statusCode + ", JSONArray response-->:" + response.toString());
-                    LogUtil.D("\n\n\n MobuyResponse: url=" + mRequestApi + "  \n    " + +statusCode + ", JSONObject response-->:" + response + "\n\n\n");
+                    //LogUtil.D("\n\n\n MobuyResponse: url=" + mRequestApi + "  \n    " + +statusCode + ", JSONObject response-->:" + response + "\n\n\n");
                     if (isStatusCode(statusCode)) {
                         String responseInfo = response.toString();
                         FileLocalCache.saveFile(url, responseInfo);
                         BaseBean bean = JSON.parseObject(responseInfo, clazz);
-                        if (ConstantsCode.successCode(bean.getIsSuccess())) {
+                        if (ConstantsCode.successCode(bean.getIsSuccess())) {  //状态码正常的情况下，返回上层执行
                             loadSuccess(bean);
-                        } else if (bean.getIsSuccess() == 2)// 在没有登陆的状态下，访问了需要授权的接口，导致提示参数异常
+                        } else// 非正常的情况下，直接进行拦截，不让上层进行数据处理
                         {
-                            // 不执行任何的操作
-                        } else {
-                            // 用户被注销
-                            if (bean.getIsSuccess() == 12) {  //&&Constants.IS_TEST_FLAG==false
-                                MyApplication.getInstance().setLOGIN_STATE(false);
-                                //退出IM,当用户被挤下线的情况
-                                try {
-                                    EMChatManager.getInstance().logout();
-                                } catch (Exception ex) {
 
-                                }
-                                //MyApplication.LOGIN_STATE=false;
-                                // 直接引导到用户登陆界面
-                                GuideUserActivity_.intent(AbstractActivity.this)
-                                        .isRelogin(true).start();
-                            } else if (bean.getIsSuccess() == 50)  // 公共标识码  用于经常改变提示语 错误码为50时,提示语从后台获取展示 add:sea 2015-12-02
-                            {
-                                SweetAlertDialog dialog = new SweetAlertDialog(AbstractActivity.this, SweetAlertDialog.WARNING_TYPE);
-                                dialog.setTitleText(getString(R.string.dialog_payssion_pay_success_title))
-                                        .setContentText(bean.msg + "")
-                                        .setTitleText(getString(R.string.prompt))
-                                        .setCancelText(getString(R.string.dialog_payssion_pay_confirm))
-                                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                            @Override
-                                            public void onDismiss(DialogInterface dialog) {
-
-                                            }
-                                        });
-                                //dialog.showCancelButton(false);
-                                dialog.show();
-                            } else {
-                                int resStringId = ConstantsCode.errorCode(bean.getIsSuccess());
-                                SweetAlertDialog dialog = new SweetAlertDialog(AbstractActivity.this, SweetAlertDialog.WARNING_TYPE);
-                                dialog.setTitleText(getString(R.string.dialog_payssion_pay_success_title))
-                                        .setContentText(getString(resStringId))
-                                        .setTitleText(getString(R.string.prompt))
-                                        .setCancelText(getString(R.string.dialog_payssion_pay_confirm))
-                                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                            @Override
-                                            public void onDismiss(DialogInterface dialog) {
-
-                                            }
-                                        });
-                                //dialog.showCancelButton(false);
-                                dialog.show();
-                            }
                         }
                     }
                 } catch (Exception ex) {
                     LogUtil.D("AbstractActivity  JsonDecode Error------------------------------------------>" + ex.toString());
-                    String mRequestApi = "" + url + "?";
-                    if (mParams != null) {
-                        String[] array = mParams.toString().split("&");
-                        for (String string : array) {
-                            mRequestApi = mRequestApi + string + "&";
-                        }
-                    }
-                    RequestParams errorParam = new RequestParams();
-                    errorParam.put("url", mRequestApi);
-                    errorParam.put("errorinfo", response);
-                    errorParam.put("client_info", ex.toString());
-                    new AsyncTask(false) {
-                        @Override
-                        public void exception() {
-
-                        }
-
-                        @Override
-                        public void loadSuccess(BaseBean bean) {
-
-                        }
-                    }.post(false, RequestAPI.API_REPORT_ERROR_DATA, errorParam, BaseBean.class);
-                    handleThrowable(AsyncTask.this, ex);
                 }
             }
 
@@ -923,59 +777,24 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     // mainBody.setBackgroundColor(getResources().getColor(R.color.gray_bg));
     // }
 
-    /**
-     * @return
-     * @author caibing.zhang
-     * @createdate 2014年8月26日 下午2:39:28
-     * @Description: 获取会员信息对象
-     */
-    public UserInfo getMember() {
-        return ((MyApplication) getApplication()).getMember();
-    }
 
     /**
      * @param userInfo
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月27日 下午4:11:00
      * @Description: 获取用户的信息，保存会员相关的的信息
      */
-    public void saveMember(UserInfo userInfo) {
-        if (userInfo != null) {
+    public void saveMember(Object userInfo) {
 
-            MyApplication.getMyApplication().userInfo = userInfo;
-            SharedPreferenceUtil.saveString(getApplicationContext(),
-                    Constants.USER_NAME, userInfo.getCustomerName());
-            SharedPreferenceUtil.saveString(getApplicationContext(),
-                    Constants.NICK_NAME, userInfo.getNickname());
-            SharedPreferenceUtil.saveString(getApplicationContext(),
-                    Constants.USER_IMAGE, userInfo.getHeadUrl());
-
-            SharedPreferenceUtil.saveString(getApplicationContext(),
-                    Constants.USER_EMAIL, userInfo.getEmail());
-            FileLocalCache.setSerializableData(Constants.CACHE_DIR_SYSTEM,
-                    userInfo, Constants.MEMBER);
-
-        }
     }
 
     /**
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年1月27日 下午9:09:17
      * @Description: 注销用户
      */
     public void cancellationMember() {
-        SharedPreferenceUtil.saveString(getApplicationContext(),
-                Constants.TOKEN_ID, "");
-        SharedPreferenceUtil.saveString(getApplicationContext(),
-                Constants.USER_NAME, "");
-        SharedPreferenceUtil.saveString(getApplicationContext(),
-                Constants.USER_IMAGE, "");
-        MyApplication.PUSH_COUNT_NUM = 0;
-        MyApplication.SHOPPING_CART_NUM = 0;
-        MyApplication.TOKEN_ID = null;
-        ((MyApplication) getApplication()).setMember(null);
-        FileLocalCache.delSerializableData(Constants.CACHE_DIR_SYSTEM,
-                Constants.MEMBER);
+
     }
 
     public int screenHeight = 0;
@@ -988,112 +807,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         manager.getDefaultDisplay().getMetrics(dm);
         screenWidth = dm.widthPixels;
         screenHeight = dm.heightPixels;
-    }
-
-    /**
-     * @author caibing.zhang
-     * @createdate 2015年2月7日 下午9:06:58
-     * @Description: 版本更新
-     */
-    public void updateVersion() {
-        new AsyncTask(false) {
-            @Override
-            public void loadSuccess(BaseBean bean) {
-                VersionListBean v = (VersionListBean) bean;
-                SweetAlertDialog dialog;
-
-                if (v.getVK_APP_ID() != 0) {
-                    MyApplication.getMyApplication().initVKConfigureWithAppId(v.getVK_APP_ID());
-                }
-
-                if (v.getVersion() > getVersionCode()) {
-                    // 无需要升级
-                    final String downloadUrl = v.getUrl();
-                    if (TextUtils.isEmpty(downloadUrl)) {
-                        if (v.getForce() != 0) {//   如果等于0则表示的是强制升级，非零不一定要强制升级
-                            dialog = new SweetAlertDialog(
-                                    AbstractActivity.this, SweetAlertDialog.WARNING_TYPE)
-                                    .setTitleText(getString(R.string.update_version_title))
-                                    .setContentText(v.getDescription())
-                                    .setCancelText(getString(R.string.upgrade_immediately))
-                                    .setCancelClickListener(new OnSweetClickListener() {
-                                        @Override
-                                        public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                            Uri uri = Uri.parse("market://details?id=" + AbstractActivity.this.getPackageName());
-                                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(intent);
-                                        }
-                                    });
-                            dialog.setConfirmText(getString(R.string.later_upgrade));
-                            //dialog.setCancelClickListener(null);
-                            dialog.setCancelables(true);
-                            dialog.show();
-                            return;
-                        } else {
-                            dialog = new SweetAlertDialog(
-                                    AbstractActivity.this, SweetAlertDialog.WARNING_TYPE)
-                                    .setTitleText(getString(R.string.update_version_title))
-                                    .setContentText(v.getDescription())
-                                    .setCancelText(getString(R.string.upgrade_immediately))
-                                    .setCancelClickListener(new OnSweetClickListener() {
-                                        @Override
-                                        public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                            Uri uri = Uri.parse("market://details?id=" + AbstractActivity.this.getPackageName());
-                                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(intent);
-                                        }
-                                    });
-                            dialog.setCancelText(getString(R.string.upgrade_immediately));
-                            dialog.setCancelables(true);
-                            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialogInterface) {
-                                    System.exit(0);
-                                }
-                            });
-                            dialog.show();
-                        }
-                        return;
-                    } else {
-                        dialog = new SweetAlertDialog(
-                                AbstractActivity.this, SweetAlertDialog.WARNING_TYPE)
-                                .setTitleText(getString(R.string.update_version_title))
-                                .setContentText(v.getDescription())
-                                .setCancelText(getString(R.string.upgrade_immediately))
-                                .setCancelClickListener(new OnSweetClickListener() {
-                                    @Override
-                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                        Intent intent = new Intent();
-                                        intent.setAction("android.intent.action.VIEW");
-                                        Uri content_url = Uri.parse(downloadUrl);
-                                        intent.setData(content_url);
-                                        startActivity(intent);
-                                    }
-                                });
-                        // 0=强制升级
-                        if (v.getForce() == 0) {
-                            dialog.setCancelText(getString(R.string.upgrade_immediately));
-                            dialog.setCancelables(true);
-                            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialogInterface) {
-                                    System.exit(0);
-                                }
-                            });
-                        } else {
-                            dialog.setCancelables(true);
-                        }
-                        dialog.show();
-                    }
-                }
-            }
-
-            @Override
-            public void exception() {
-            }
-        }.post(false, RequestAPI.APIVERSION_VERSION, null, VersionListBean.class);
     }
 
     /*------------------------------------------------相机的相关方法（begin）---------------------------------------------------------------------*/
@@ -1126,7 +839,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         photoPath = uri.toString().replace("file://", "");
         startActivityForResult(cameraIntent,
-                Constants.UPLOAD_PICTURE_TAKE_HEAD);
+                CoreConstant.UPLOAD_PICTURE_TAKE_HEAD);
     }
 
     /**
@@ -1145,13 +858,13 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
         intent.setDataAndType(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 "image/*");
-        startActivityForResult(intent, Constants.UPLOAD_PICTURE_HEAD);
+        startActivityForResult(intent, CoreConstant.UPLOAD_PICTURE_HEAD);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case Constants.UPLOAD_PICTURE_TAKE_HEAD:// 头像拍照返回
+            case CoreConstant.UPLOAD_PICTURE_TAKE_HEAD:// 头像拍照返回
                 try {
                     bitmap = ImageUtil.getThumbnailFromFile(photoPath, 100, 100);
                     uploadPhotoPath = ImageUtil.compressionImage(photoPath);
@@ -1164,7 +877,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
                     // TODO: handle exception
                 }
                 break;
-            case Constants.UPLOAD_PICTURE_HEAD:// 头像从手机相册选择
+            case CoreConstant.UPLOAD_PICTURE_HEAD:// 头像从手机相册选择
                 if (resultCode == 0 || null == data) {
                     return;
                 }
@@ -1205,7 +918,7 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
 
     /**
      * @return
-     * @author caibing.zhang
+     * @author sufun.wu
      * @createdate 2015年3月21日 上午11:55:49
      * @Description: 获取版本号
      */
@@ -1247,124 +960,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     public void doCopyToPaste(String content) {
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         clipboardManager.setText(content);
-    }
-
-    int mTryGetInfoTimes = 1;
-
-    /**
-     * 再次尝试着注册IM信息
-     */
-    void doTryGetIMINFO() {
-        mTryGetInfoTimes++;
-        if (mTryGetInfoTimes >= 3) {
-            return;
-        } else {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (Exception ex) {
-
-                    }
-                    doIMChatLogin();
-                }
-            }).start();
-        }
-
-    }
-
-    /**
-     * 用户去环信那边尝试登陆的次数
-     */
-    int mTryLogDoLoginTimes = 1;
-
-    /**
-     * 尝试着去环信平台再次登陆
-     */
-    void doTryeLogin(final String userName, final String password) {
-        mTryLogDoLoginTimes++;
-        if (mTryLogDoLoginTimes >= 3) {
-            return;
-        } else {
-            EMChatManager.getInstance().login(userName, password, new EMCallBack() {
-                @Override
-                public void onSuccess() {
-                    LogUtil.D("     HXLogin Loging Success");
-                }
-
-                @Override
-                public void onProgress(int progress, String status) {
-                    LogUtil.D("    HXLogin   Progress  ");
-                }
-
-                @Override
-                public void onError(int code, String error) {
-                    LogUtil.D("    HXLogin Success-------------->");
-                    doTryeLogin(userName, password);
-                }
-            });
-        }
-    }
-
-    /**
-     * @author sufun
-     * @createtime 2016年1月11日 17:12:54
-     * @description 用于登陆第三方的IM功能
-     */
-    public void doIMChatLogin() {
-        RequestParams params = new RequestParams();
-        params.put("tokenid", MyApplication.TOKEN_ID);
-        new AsyncTask(false) {
-            @Override
-            public void loadSuccess(BaseBean bean) {
-                /*
-                UserInfoList userInfoList=(UserInfoList)bean;
-                UserInfo userInfo=userInfoList.getData();
-                saveMember(userInfo);
-
-                MyApplication.SHOPPING_CART_NUM=userInfo.getQtyCount();
-                LeftColumn leftColumn=userInfo.getLeftColumn();
-                if(leftColumn!=null){
-                    MyApplication.PUSH_COUNT_NUM=leftColumn.getPushCount();
-                }*/
-                if (bean.getIsSuccess() == Constants.IM_REGISTER_FAIL) {
-                    doTryGetIMINFO();
-                    return;
-                }
-                IMUserDataList mDatas = (IMUserDataList) bean;
-                if (mDatas.data != null && mDatas.data.size() > 0) {
-                    //开始执行登陆的操作
-                    IMUserInfo item = mDatas.data.get(0);
-                    //登录
-                    //将环信的聊天帐号存在本地
-                    SharedPreferenceUtil.saveString(AbstractActivity.this, Constants.KEY_IM_ACCOUNT, item.getUsername());
-                    doTryeLogin(item.getUsername(), item.getPassword());
-                }
-            }
-
-            @Override
-            public void exception() {
-            }
-        }.post(false, RequestAPI.API_IM_GET_USER_INFO, null, IMUserDataList.class);
-
-    }
-
-    /**
-     * @author sufun
-     * @descritption 开始动画效果
-     * @createtime 2016年4月12日 18:05:43
-     */
-    public void startSVGAnimation(PathView pathView)
-    {
-        pathView.setFillAfter(true);  //渲染完后，进行相关的填充
-        pathView.useNaturalColors();    //进行自然色的填充
-        pathView.getPathAnimator().   //使用画的效果进行描边
-                //pathView.getSequentialPathAnimator().   //使用分块的方式进行描边
-                delay(0).    //每一笔填充的时间
-                duration(1000).   //总共的时间
-                interpolator(new AccelerateDecelerateInterpolator()).
-                start();
     }
 
 }

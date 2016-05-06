@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<color name="app_bg">#FF9000</color> <!--应用的基本色#CC0000    #fd7394:淡粉红色            深红色：cc0000             -->
 	<color name="text_white">#FFFFFF</color>
 	<color name="text_black">#000000</color>
 	<color name="transparent">#00000000</color> 
@@ -8,5 +9,9 @@
 	<color name="customactivityoncrash_primary">#3F51B5</color>
     <color name="customactivityoncrash_primary_dark">#283593</color>
     <color name="customactivityoncrash_accent">#FF4081</color>
+	<color name="grey5">#d3d3d3</color>
 
+	<color name="but_stroke_bg">#d3d3d3</color>
+
+	<color name="text_gray">#999999</color>  <!-- 灰色 -->
 </resources>

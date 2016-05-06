@@ -2,8 +2,6 @@ package com.core.util;
 
 import android.content.Context;
 
-import com.bellabuy.nnbuy.R;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -29,7 +27,7 @@ public class TextUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static byte[] getFileContent(String fileName) throws Exception{
+	public static byte[] getFileContent(String fileName) throws Exception {
 		File file = new File(fileName);
 		if( file.exists() ){ 
 			InputStream is = new FileInputStream(file);
@@ -131,7 +129,7 @@ public class TextUtil {
 	 * @return
 	 */
 	public static String addition(String a,String b){
-		double value=Double.parseDouble(a)+Double.parseDouble(b);
+		double value= Double.parseDouble(a)+ Double.parseDouble(b);
 		return format(value);
 	}
 	

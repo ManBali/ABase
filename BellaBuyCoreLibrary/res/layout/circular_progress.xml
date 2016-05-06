@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
-	<com.bellabuy.widgets.progress.CircularProgress
+	<com.core.widget.progress.CircularProgress
         android:layout_width="40dp" android:layout_height="40dp"
         app:m_borderWidth="3dp" android:layout_centerInParent="true"/>
 </RelativeLayout>

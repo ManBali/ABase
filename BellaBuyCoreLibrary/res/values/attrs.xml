@@ -61,5 +61,7 @@
 
      </declare-styleable>  -->
 
- 
+    <declare-styleable name="CircularProgress">
+        <attr name="m_borderWidth" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -1,1 +1,1 @@
-include ':Demo','BellaBuyCoreLibrary','SweetAlertLibrary','main'
+include ':Demo','BellaBuyCoreLibrary','SweetAlertLibrary','main','croutonLibrary'

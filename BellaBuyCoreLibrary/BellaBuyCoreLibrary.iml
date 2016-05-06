@@ -92,7 +92,9 @@
     <orderEntry type="library" exported="" name="fastjson-1.1.34.android" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="android-async-http-1.4.6" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.1.1" level="project" />
     <orderEntry type="module" module-name="SweetAlertLibrary" exported="" />
+    <orderEntry type="module" module-name="croutonLibrary" exported="" />
   </component>
 </module>

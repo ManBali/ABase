@@ -30,4 +30,11 @@ public class CoreConstant {
     public static final String WAP_SHOW_URL="Web_Show_URl";
 
 	public static final String CGM_PROJECT_NUMBER=""; //google的推送CGM服务id
+
+	public static final String PAGE_SIZE="10";
+
+	public static final int UPLOAD_PICTURE_TAKE_HEAD = 51;//头像拍照
+	public static final int UPLOAD_PICTURE_HEAD = 50;//头像从手机选择照片
+
+	public static final String PACKAGE_NAME="com.bellabuy.nnbuy";
 }

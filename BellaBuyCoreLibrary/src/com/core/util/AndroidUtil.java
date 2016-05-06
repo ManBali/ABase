@@ -21,7 +21,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 
-import com.bellabuy.utils.constant.Constants;
+import com.core.util.constants.CoreConstant;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -168,7 +168,7 @@ public class AndroidUtil {
 		String hash="";
         try 
         {
-            PackageInfo info = mContext.getPackageManager().getPackageInfo(Constants.PACKAGE_NAME, PackageManager.GET_SIGNATURES);
+            PackageInfo info = mContext.getPackageManager().getPackageInfo(CoreConstant.PACKAGE_NAME, PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures)
             {
                 MessageDigest md = MessageDigest.getInstance("SHA");

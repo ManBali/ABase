@@ -7,7 +7,7 @@
     android:paddingRight="10dip">
 
     <Button
-        android:id="@id/title_left_btn"
+        android:id="@+id/title_left_btn"
         android:layout_width="32dip"
         android:layout_height="30dip"
         android:layout_alignParentLeft="true"
@@ -47,7 +47,7 @@
         android:textSize="14sp"
         android:visibility="gone" />
 
-    <com.bellabuy.widgets.SFBaseTextView
+    <TextView
         android:id="@+id/review_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,26 +56,6 @@
         android:textColor="@color/text_black"
         android:textSize="16.0sp"
         android:visibility="gone" />
-
-    <!-- <ImageView
-        android:id="@+id/img_like"
-        android:layout_width="27dip"
-        android:layout_height="27dip"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:src="@drawable/img_title_like"
-        android:visibility="gone" />
-
-    <com.bellabuy.widgets.SFBubbleButtonView
-        android:id="@+id/bubble_like"
-        style="@style/menu_bubble_style"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="3dip"
-        android:layout_marginTop="10dip"
-        android:visibility="gone" />
--->
     <ImageView
         android:id="@+id/img_shopping_card"
         android:layout_width="27dip"
@@ -86,11 +66,6 @@
         android:src="@drawable/navigation_cart"
         android:visibility="gone" />
 
-    <com.bellabuy.widgets.SFBubbleButtonView
-        android:id="@+id/bubble_shopping_cart"
-        style="@style/menu_bubble_style"
-        android:layout_alignParentRight="true"
-        android:visibility="gone" />
 
     <Button
         android:id="@+id/title_right_btn_2"
@@ -102,7 +77,7 @@
         android:textColor="@color/app_bg"
         android:visibility="gone" />
 
-    <com.bellabuy.widgets.SFBaseTextView
+    <TextView
         android:id="@id/title_text"
         style="@style/layout_wrap_fill"
         android:layout_width="wrap_content"
@@ -115,9 +90,8 @@
         android:paddingRight="5dip"
         android:singleLine="true"
         android:text="@string/app_name"
-        android:textColor="@color/grey6"
-        android:textSize="15sp"
-        test:font_name="HELVETICANEUELTSTD-LTCN.OTF" />
+        android:textColor="@color/text_gray"
+        android:textSize="15sp" />
 
 
     <EditText

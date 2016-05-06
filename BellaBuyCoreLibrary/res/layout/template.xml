@@ -6,19 +6,17 @@
     android:orientation="vertical">
 
     <com.bellabuy.widgets.TitleView
-        android:id="@id/title_iv_id"
+        android:id="@+id/title_iv_id"
         style="@style/layout_fill_wrap" />
 
 
     <FrameLayout
         android:id="@+id/fl_panent_id"
         style="@style/layout_fill">
-
         <LinearLayout
-            android:id="@id/view_mainBody"
+            android:id="@+id/view_mainBody"
             style="@style/layout_fill"
             android:orientation="vertical" />
-
     </FrameLayout>
 
 </LinearLayout>
