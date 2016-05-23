@@ -14,7 +14,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import com.core.R;
 import com.core.util.CoreUtil;
 
-public abstract class AbstractCoreActivity extends FragmentActivity {
+public abstract class AbstractCoreActivity extends  FragmentActivity {
 	
 	protected Dialog dialog;
 	protected View templateView;
@@ -46,11 +46,9 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 
 	/**
 	 * @Description: 显示加载对话框
-	 * @param task 
 	 * @param message 显示的信息
 	 * @param cancelable 是否支持取消操作
-	 * @param isLoadingPrompt 是否使用运营推荐消息
-	 */	
+	 */
 	public abstract Dialog showWaitDialog(String message,boolean cancelable);
 	
 	/**
@@ -96,8 +94,8 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	 * @Description:  一个按钮对话框
 	 * @param alertType 对话框类型
 	 * @param title  标题, 为空时，设置null，显示为：温馨提示
-	 * @param message 消息内容 
-	 * @param btnText 按钮内容,  为空时，设置null，显示为：确定
+	 * @param message 消息内容
+	 * @param confirmBtnText 按钮内容,  为空时，设置null，显示为：确定
 	 * @param listener 点击按钮的回调事件
 	 * @param isCancelable 是否允许点击返回键关闭对话框，false：点击返回不关闭对话框，默认为true
 	 */
@@ -184,9 +182,9 @@ public abstract class AbstractCoreActivity extends FragmentActivity {
 	 * @param alertType 对话框类型
 	 * @param resStrTitle  标题，为空时，设置为0
 	 * @param resStrMessage 消息内容 
-	 * @param positiveButtonText 右侧按钮（确定）显示文字
+	 * @param positiveButtonListener 右侧按钮（确定）显示文字
 	 * @param positiveButtonListener  
-	 * @param negativeButtonText 左侧按钮（取消）显示文字
+	 * @param negativeButtonListener 左侧按钮（取消）显示文字
 	 * @param negativeButtonListener
 	 * @param isCancelable 是否允许点击返回键关闭对话框，false：点击返回不关闭对话框，默认为true
 	 */

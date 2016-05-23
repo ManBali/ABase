@@ -5,7 +5,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <com.bellabuy.widgets.TitleView
+    <com.core.widget.TitleView
         android:id="@+id/title_iv_id"
         style="@style/layout_fill_wrap" />
 
