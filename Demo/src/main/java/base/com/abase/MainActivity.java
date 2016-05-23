@@ -16,6 +16,8 @@ public class MainActivity extends AbstractActivity {    //AppCompatActivity
     @AfterViews
     void init ()
     {
-
+       //开始执行测试
     }
+
+
 }
