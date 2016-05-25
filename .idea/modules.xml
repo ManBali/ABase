@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" filepath="$PROJECT_DIR$/SweetAlertLibrary/SweetAlertLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/croutonLibrary/croutonLibrary.iml" filepath="$PROJECT_DIR$/croutonLibrary/croutonLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refresh_library/refresh_library.iml" filepath="$PROJECT_DIR$/refresh_library/refresh_library.iml" />
     </modules>
   </component>
 </project>

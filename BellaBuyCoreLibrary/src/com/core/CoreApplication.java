@@ -79,13 +79,10 @@ public class CoreApplication extends MultiDexApplication implements Serializable
 		init();
 		coreApp = this;
 	}
-
-
 	/**
 	 * @Description: 初始化
 	 */
 	private void init() {
-
 		if (FileUtil.isExistSD()) {
 			// SD存在
 			CACHE_DIR_SD = FileUtil.getSDCacheDir(context);
@@ -109,7 +106,6 @@ public class CoreApplication extends MultiDexApplication implements Serializable
 		FileUtil.checkDir(LOG_DIR);
 		FileUtil.checkDir(IMAGE_UPLOAD_TEMP);
 		FileUtil.checkDir(CACHE_DIR_SYSTEM);
-
 		//启动网络检测服务
 		Intent netService=new Intent();
 		netService.setClass(this, ListenNetStateService.class);

@@ -41,7 +41,6 @@ import com.core.util.NetWorkUtil;
 import com.core.util.constants.CoreConstant;
 import com.core.util.file.FileUtil;
 import com.core.util.image.ImageUtil;
-import com.core.util.image.XUtilsImageLoader;
 import com.core.widget.TitleView;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -61,8 +60,6 @@ import java.util.TimerTask;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-
-
 /**
  * @createdate 2013-12-17 下午2:44:50
  * @Description: Activity基类
@@ -95,7 +92,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
             });
             titleView.mRightBtn.setVisibility(View.GONE);
         }
-
         int[] screenSize = AndroidUtil.getDisplay(this);
         CoreApplication.mScreenWidth = screenSize[0];
         CoreApplication.mScreenHeight = screenSize[1];
@@ -125,20 +121,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
             }
         }
     }
-    /**
-     * @return
-     * @author sufun.wu
-     * @createdate 2015年1月26日 下午11:09:46
-     * @Description: 初始化图片加载工具，方便在内存回收
-     */
-    public XUtilsImageLoader initXUtilsImageLoader() {
-        // if(xUtilsImageLoader==null){
-        // xUtilsImageLoader=new XUtilsImageLoader(this);
-        // }
-        // return xUtilsImageLoader;
-
-        return null;
-    }
 
     @Override
     protected void onResume() {
@@ -161,15 +143,6 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
     protected void onPause() {
         // TODO Auto-generated method stub
         super.onPause();
-    }
-
-    /**
-     * @author sufun.wu
-     * @createdate 2015年1月25日 下午12:47:47
-     * @Description: 隐藏购物车
-     */
-    public void hidShoppingCart() {
-        // findViewById(R.id.shopping_car_id).setVisibility(View.GONE);
     }
 
     /**

@@ -39,4 +39,11 @@
 	<dimen name="dime_forty">40dip</dimen>
 
 	<dimen name="txt_sp_large">17sp</dimen>
+
+	<dimen name="test_padding_margin">0dp</dimen>
+
+	<!--下拉与刷新的控件的高度-->
+	<dimen name="load_more_footer_height_classic">60dp</dimen>
+	<dimen name="refresh_header_height_twitter">80dp</dimen>
+	<dimen name="load_more_footer_height_twitter">60dp</dimen>
 </resources>

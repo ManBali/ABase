@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/SweetAlertLibrary" />
             <option value="$PROJECT_DIR$/croutonLibrary" />
             <option value="$PROJECT_DIR$/main" />
+            <option value="$PROJECT_DIR$/refresh_library" />
           </set>
         </option>
       </GradleProjectSettings>

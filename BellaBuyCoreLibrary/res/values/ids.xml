@@ -6,4 +6,10 @@
      <item type="id" name="tv_id">false</item>
      <item type="id" name="pb_id">false</item>
      <item type="id" name="glide_tag"></item>
+
+
+     <!--下拉刷新使用的ID-->
+     <item name="swipe_target" type="id" />
+     <item name="swipe_refresh_header" type="id" />
+     <item name="swipe_load_more_footer" type="id" />
 </resources>
