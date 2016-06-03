@@ -6,7 +6,7 @@ package com.core.util.constants;
  * @Description: 常量
  */
 public class CoreConstant {
-	public static  boolean IS_TEST_FLAG= false;        //日志打印,试运行环境、测试环境为true,生产环境为false
+	public static  boolean IS_TEST_FLAG= true;        //日志打印,试运行环境、测试环境为true,生产环境为false
 	public static boolean IS_UMENG = false;                //友盟统计控制开关,true允许使用,false则相反,配置后下次启动生效
 	public static final String PREFERENCE_NAME="club"; //SharedPreference文件名
 	

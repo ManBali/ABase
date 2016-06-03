@@ -57,16 +57,13 @@ public class RecyclerViewActivity extends AbstractActivity {
                 swipeToLoadLayout.setRefreshing(true);
             }
         });
-
         mAdapter=new CaseAdapter(this, R.layout.case_item, new IAdapterEventDelegate<CaseModel>() {
             @Override
             public void onEevnt(int pos, CaseModel caseModel, int EventType) {
 
             }
         });
-
-        mAdapter.setDatas(getData());
-
+        mAdapter.setDatas(new ArrayList<CaseModel>());
         RecyclerViewManager.getInstance().with(mAdapter,new LinearLayoutManager(this))  //new GridLayoutManager(this, 3)    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL))
                 .setMode(RecyclerMode.BOTH)    //刷新的方向
                 .setStyle(RecyclerStyle.CLASSIC)  //展示的类型
@@ -76,7 +73,7 @@ public class RecyclerViewActivity extends AbstractActivity {
                 .addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST))
                 .setOnBothRefreshListener(new OnBothRefreshListener() {
                     @Override
-                    public void onRefresh() {
+                    public void onRefresh() {  //上拉刷新事件触发
                         count=0;
                         Message msg = new Message();
                         msg.what = 0;
@@ -84,7 +81,7 @@ public class RecyclerViewActivity extends AbstractActivity {
                     }
 
                     @Override
-                    public void onLoadMore() {
+                    public void onLoadMore() {    //加载更多事件触发
                         Message msg = new Message();
                         msg.what = 1;
                         mHandler.sendMessageDelayed(msg, 2000);
@@ -94,7 +91,7 @@ public class RecyclerViewActivity extends AbstractActivity {
             public void onItemClick(RecyclerView.ViewHolder holder, int position) {
 
             }
-        }).into(recyclerView,swipeToLoadLayout,this);
+        }).into(recyclerView, swipeToLoadLayout, this);
     }
 
     /**

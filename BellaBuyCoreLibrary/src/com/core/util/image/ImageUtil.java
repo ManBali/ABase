@@ -1,13 +1,5 @@
 package com.core.util.image;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,12 +17,19 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.util.Log;
 
 import com.core.CoreApplication;
+import com.core.util.LogUtil;
 import com.core.util.file.FileUtil;
 import com.core.util.file.StreamUtil;
-import com.lidroid.xutils.util.LogUtils;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 
 /**
  * @author miaoxin.ye
@@ -444,15 +443,17 @@ public class ImageUtil {
 	            fis.close();
 	            fis=null;
 	            if(size>204800L){   //200KB以内不压缩
+
+					File folder=new File(CoreApplication.IMAGE_UPLOAD_TEMP);
+					if(!folder.exists())
+					{
+						folder.mkdir();
+					}
+
+					LogUtil.D("ImagePath--------->"+path);
 	    			Bitmap bm = PictureUtil.getSmallBitmap(path);
 	    			File newFile=new File(newPath);
 	    			//先创建这个文件夹，不然会找不到这个文件的
-	    			File folder=new File(CoreApplication.IMAGE_UPLOAD_TEMP);
-	    			if(!folder.exists())
-	    			{
-	    				folder.mkdir();
-	    			}
-	    			
 	    			if(!newFile.exists())
 	    			{
 	    				newFile.createNewFile();
@@ -475,6 +476,7 @@ public class ImageUtil {
 	            }
 			} catch (Exception e) {
 					e.printStackTrace();
+				LogUtil.D(" 文件操作错误-------->"+e.toString());
 			}
         }
 		return path;

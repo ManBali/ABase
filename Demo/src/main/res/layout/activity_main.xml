@@ -11,4 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="数据列表展示测试"/>
+
+    <Button
+        android:id="@+id/btn_activity_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity 界面跳转"/>
+
+    <Button
+        android:id="@+id/btn_activity_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始拍照"/>
+
+    <Button
+        android:id="@+id/btn_activity_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试弹出层对话框"/>
+
+
+    <Button
+        android:id="@+id/btn_browser_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开图片的浏览"/>
+
 </LinearLayout>

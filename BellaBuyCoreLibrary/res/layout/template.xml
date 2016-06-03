@@ -4,6 +4,7 @@
     android:background="@color/text_white"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+    <!-- android:background="@color/text_white"-->
     <com.core.widget.TitleView
         android:id="@+id/title_iv_id"
         style="@style/layout_fill_wrap" />

@@ -19,6 +19,11 @@ import base.com.model.CaseModel;
  */
 public class CaseAdapter extends BaseRecyclerAdapter<CaseModel> {
 
+    /**
+     * 按钮被点击回调事件
+     */
+    public final int CASEADAPTER_EVENT_BTNCLICK=0;
+
     public CaseAdapter(Context context, int resId, IAdapterEventDelegate<CaseModel> delegate) {
         super(context, resId, delegate);
     }
@@ -31,8 +36,21 @@ public class CaseAdapter extends BaseRecyclerAdapter<CaseModel> {
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder,  int position) {
         CaseModel bean = mDatas.get(position);
         holder.setButtonText(R.id.id_item, bean.title);
+
+        //做一些业务回调接口
+        holder.getItemView().findViewById(R.id.id_item).setTag(position);
+        holder.getItemView().findViewById(R.id.id_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mdelegate!=null)
+                {
+                    int mpos=Integer.parseInt(view.getTag().toString());
+                    mdelegate.onEevnt(mpos,mDatas.get(mpos),CASEADAPTER_EVENT_BTNCLICK);
+                }
+            }
+        });
     }
 }

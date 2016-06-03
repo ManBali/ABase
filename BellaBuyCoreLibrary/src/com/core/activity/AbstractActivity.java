@@ -1,4 +1,5 @@
 package com.core.activity;
+
 import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -53,6 +54,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -91,10 +93,38 @@ public abstract class AbstractActivity extends AbstractCoreActivity {
                 }
             });
             titleView.mRightBtn.setVisibility(View.GONE);
+
+            //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                //透明状态栏
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                //透明导航栏
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            }
         }
         int[] screenSize = AndroidUtil.getDisplay(this);
         CoreApplication.mScreenWidth = screenSize[0];
         CoreApplication.mScreenHeight = screenSize[1];
+
+
+    }
+
+    /**
+     * 获取状态栏的高度
+     * @return
+     */
+    private int getStatusBarHeight(){
+        try
+        {
+            Class<?> c=Class.forName("com.android.internal.R$dimen");
+            Object obj=c.newInstance();
+            Field field=c.getField("status_bar_height");
+            int x=Integer.parseInt(field.get(obj).toString());
+            return  getResources().getDimensionPixelSize(x);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 
